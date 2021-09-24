@@ -11,6 +11,9 @@ async function getISS(){
   const response = await fetch(api_url)
   const data = await response.json();
   const {latitude, longitude} = data;
+
+ L.marker([latitude, longitude]).addTo(mymap);
+
   document.getElementById('lat').textContent = data.latitude
   document.getElementById('lon').textContent = data.longitude
 }
