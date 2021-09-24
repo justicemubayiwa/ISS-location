@@ -3,8 +3,8 @@ async function getISS(){
   const response = await fetch(api_url)
   const data = await response.json();
   const {latitude, longitude} = data;
-  console.log(latitude)
-  console.log(longitude)
+  document.getElementById('lat').textContent = data.latitude
+  document.getElementById('lon').textContent = data.longitude
 }
 
 getISS();
