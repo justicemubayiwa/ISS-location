@@ -31,3 +31,5 @@ async function getISS(){
 
 getISS();
 
+setInterval(getISS, 1000);
+
