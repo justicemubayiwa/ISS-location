@@ -17,14 +17,18 @@ const tiles = L.tileLayer(tileUrl, { attribution });(tileUrl,{attribution})
 tiles.addTo(mymap);     
 
 const api_url = 'https://api.wheretheiss.at/v1/satellites/25544'
-async function getISS(){
 
+let firstTime = true;
+async function getISS(){
   const response = await fetch(api_url)
   const data = await response.json();
   const {latitude, longitude} = data;
 
   marker.setLatLng([latitude, longitude])
+  if (firstTime){
   mymap.setView([latitude, longitude], 3)
+  firstTime = false
+  }
   document.getElementById('lat').textContent = data.latitude
   document.getElementById('lon').textContent = data.longitude
 }
