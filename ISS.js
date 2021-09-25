@@ -29,8 +29,8 @@ async function getISS(){
   mymap.setView([latitude, longitude], 3)
   firstTime = false
   }
-  document.getElementById('lat').textContent = data.latitude
-  document.getElementById('lon').textContent = data.longitude
+  document.getElementById('lat').textContent = data.latitude.toFixed(2);
+  document.getElementById('lon').textContent = data.longitude.toFixed(2);
 }
 
 getISS();
